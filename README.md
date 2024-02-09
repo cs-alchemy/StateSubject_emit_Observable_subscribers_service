@@ -16,19 +16,20 @@ export class StateStoreService {
   
   // PRIVATE : NOT TO BE TEMPERED FROM THE OUTSIDE 
   private stateSubject: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
-  
+
+************************************************************************************************************
   // GETTER : make is as an OBSERVABLE 
   getState(): Observable<number> {
     return this.stateSubject.asObservable();
   }
-
+************************************************************************************************************
   updateState_store(): void {
     // Increment the state
     const currentState = this.stateSubject.value;
     this.stateSubject.next(currentState + 1);
     console.log(this.stateSubject.value); // Log the updated state
   }
-
+************************************************************************************************************
   // Add a method to manually emit a value
   emitNewState(value: number): void {
     this.stateSubject.next(value);
